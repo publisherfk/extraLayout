@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Layout Example</title>
+<script type="text/javascript" src="./jquery.js"></script>
+<script type="text/javascript" src="./extraLayout.js"></script>
+<script type="text/javascript" src="./jquery.layout-latest.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	//$(".grid").height($(document).height() - 2);
+	$(window).resize(function(){		
+		//$(".grid").height($(document).height() - 2);
+	});
+	$.extraLayout(".grid",{nums:1,method:"column"});
+	//$.extraLayout("#container-2",{nums:3,method:"column",topBlock:false,bottomBlock:false,heights:[10,40,50]});
+	$.extraLayout("#container-2",{nums:3,method:"row",leftBlock:false,rightBlock:false,widths:[10,40,50]});
+});
+</script>
+<style>
+body{
+	padding : 0;
+	margin : 0;
+}
+.grid {
+	border:1px solid  red;
+	position:absolute;
+}
+.extra-layout{
+	border:1px solid  red;
+	margin:2px;
+}
+</style>
+</head>
+<body>
+<div id="mainFrameSet">
+	<div class="grid" style="height:99%;width:99%" >
+		<div class="grid-item extra-layout"></div>
+		<div class="grid-item grid-item--width2 extra-layout" id="container-2">
+			<div class="grid-item extra-layout"></div>
+			<div class="grid-item grid-item--width2 extra-layout"></div>
+			<div class="grid-item extra-layout"></div>
+		</div>
+		<div class="grid-item extra-layout"></div>	  
+	</div>
+</div>
+</body>
+</html>
